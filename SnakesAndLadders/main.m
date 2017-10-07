@@ -36,6 +36,7 @@ int main(int argc, const char * argv[]) {
                 }
             } else {
                 [currentPlayer roll];
+                NSLog(@"%@", [currentPlayer output]);
             }
             
             

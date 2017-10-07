@@ -12,6 +12,7 @@
 
 @property (nonatomic, readwrite) NSInteger currentSquare;
 @property (nonatomic, readonly) NSDictionary<NSNumber *, NSNumber *> *gameLogic;
+@property (nonatomic, readonly) NSString *output;
 
 -(void)roll;
 

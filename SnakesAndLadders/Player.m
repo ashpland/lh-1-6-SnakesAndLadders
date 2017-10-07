@@ -7,8 +7,12 @@
 //
 
 #import "Player.h"
-#define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
+@interface Player ()
+
+@property (nonatomic, readwrite) NSString *output;
+
+@end
 
 @implementation Player
 
@@ -33,18 +37,18 @@
     if ([self.gameLogic objectForKey:[NSNumber numberWithInteger:self.currentSquare]]) {
         NSInteger newSquare = [[self.gameLogic objectForKey:[NSNumber numberWithInteger:self.currentSquare]] integerValue];
         if (newSquare > self.currentSquare) {
-            NSLog(@"☰ Ladder! ☰");
+            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n☰ Ladder! ☰\n Up to %ld!\n", roll, (long)self.currentSquare, (long)newSquare];
         } else {
-            NSLog(@"🐍 Snake! 🐍");
+            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n🐍 Snake! 🐍\n Down to %ld!\n", roll, (long)self.currentSquare, (long)newSquare];
+
         }
         
         self.currentSquare = newSquare;
-//        NSInteger testSquare = [[NSNumber numberWithInteger:777] integerValue];
-//        self.currentSquare = testSquare;
+    } else {
+        self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n", roll, (long)self.currentSquare];
 
     }
     
-    NSLog(@"Rolled %d\nSquare %ld", roll, (long)self.currentSquare);
 }
 
 
