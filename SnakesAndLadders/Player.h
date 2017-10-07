@@ -11,6 +11,7 @@
 @interface Player : NSObject
 
 @property (nonatomic, readwrite) NSInteger currentSquare;
+@property (nonatomic, readonly) NSDictionary<NSNumber *, NSNumber *> *gameLogic;
 
 -(void)roll;
 

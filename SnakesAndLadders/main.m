@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
             NSString *response = [InputCollector inputForPrompt:@""];
             
             if(!([response isEqualToString:@"r"] || [response isEqualToString:@"roll"])){
-                if([response isEqualToString:@"quit"]){
+                if([response isEqualToString:@"q"] || [response isEqualToString:@"quit"]){
                     doContinue = NO;
                 } else {
                     NSLog(@"Try again");
