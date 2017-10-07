@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "InputCollector.h"
-#import "Player.h"
 #import "PlayerManager.h"
 
 #define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
@@ -19,13 +18,19 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
+        // Initialize
+        
         PlayerManager *playerManager = [PlayerManager new];
                 
-        NSLog(@"🐍 Welcome to Snakes and Ladders! ☰");
+        NSLog(@"🐍 Welcome to Snakes and Rockets! 🚀");
+        
+        //
+        // Get players
+        //
         
         do {
             NSLog(@"Please enter the number of players (1-4): ");
-            NSInteger numberOfPlayers =[[InputCollector inputForPrompt:@""] integerValue];
+            NSInteger numberOfPlayers =[[InputCollector inputForPrompt:@"> "] integerValue];
             // the 5 is intention, for a secret extra player
             if (1 <= numberOfPlayers && numberOfPlayers <= 5) {
                 [playerManager createPlayers:numberOfPlayers];
@@ -35,10 +40,15 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Here are the players:");
         NSLog(@"%@", playerManager);
         
+        //
+        // Start game
+        //
+        
         NSLog(@"Type r to roll");
         
         while (!playerManager.gameOver) {
-            NSString *response = [InputCollector inputForPrompt:@""];
+            NSString *currentPlayerHeart = playerManager.currentPlayer.heart;
+            NSString *response = [InputCollector inputForPrompt:[NSString stringWithFormat:@"%@ ", currentPlayerHeart]];
             
             if(!([response isEqualToString:@"r"] || [response isEqualToString:@"roll"])){
                 if([response isEqualToString:@"q"] || [response isEqualToString:@"quit"]){
@@ -49,6 +59,7 @@ int main(int argc, const char * argv[]) {
             } else {
                 [playerManager roll];
                 NSLog(@"%@", [playerManager output]);
+                [playerManager endTurn];
             }
         }
     }

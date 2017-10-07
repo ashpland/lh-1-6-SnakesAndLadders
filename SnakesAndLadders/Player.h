@@ -17,6 +17,6 @@
 @property (nonatomic, readonly) NSString *heart;
 
 -(instancetype)initWithName:(NSString *)playerName;
--(void)roll;
+-(bool)roll;
 
 @end

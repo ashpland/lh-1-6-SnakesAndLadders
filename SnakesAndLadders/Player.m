@@ -19,14 +19,7 @@
 
 - (instancetype)init
 {
-    self = [super init];
-    if (self) {
-        _currentSquare = 0;
-        _gameLogic = @{
-           @4:@14,@9:@31,@17:@7,@20:@38,@28:@84,@40:@58,@51:@67,@63:@81,@64:@60,@89:@26,@95:@75,@99:@78
-           };
-    }
-    return self;
+    return [self initWithName:@"Default Player"];
 }
 
 -(instancetype)initWithName:(NSString *)playerName
@@ -35,35 +28,42 @@
     if (self) {
         _currentSquare = 0;
         _name = playerName;
+        _gameLogic = @{
+                       @4:@14,@9:@31,@17:@7,@20:@38,@28:@84,@40:@58,@51:@67,@63:@81,@64:@60,@89:@26,@95:@75,@99:@78
+                       };
+
     }
     return self;
 }
 
--(void)roll
+-(bool)roll
 {
-    int roll = arc4random_uniform(6)+1;
+    //int roll = arc4random_uniform(6)+1;
+    int roll = 100;
     self.currentSquare = self.currentSquare + roll;
+    
+    NSMutableString *rollOutput = [NSMutableString stringWithFormat:@"\n%@ rolled %d\n      Move to %ld\n", self, roll, (long)self.currentSquare];
+    
     
     if ([self.gameLogic objectForKey:[NSNumber numberWithInteger:self.currentSquare]]) {
         NSInteger newSquare = [[self.gameLogic objectForKey:[NSNumber numberWithInteger:self.currentSquare]] integerValue];
  
         if (newSquare > self.currentSquare) {
-            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n☰ Ladder! ☰\n Up to %ld!\n", roll, (long)self.currentSquare, (long)newSquare];
+            [rollOutput appendFormat:@"    🚀 Rocket! 🚀\n      Up to %ld!\n", (long)newSquare];
         }
         else {
-            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n🐍 Snake! 🐍\n Down to %ld!\n", roll, (long)self.currentSquare, (long)newSquare];
+            [rollOutput appendFormat:@"    🐍 Snake! 🐍\n      Down to %ld!\n", (long)newSquare];
         }
         self.currentSquare = newSquare;
     }
     else {
         if(self.currentSquare >= 100){
-            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to 100!\n🏆 You Win! 🏆\n\n", roll];
-            self.gameOver = YES;
-            return;
-        } else {
-            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n", roll, (long)self.currentSquare];
+            self.output = [NSString stringWithFormat:@"\n%@ rolled %d\n      Move to 100!\n     🏆 You Win! 🏆\n\n", self, roll];
+            return YES;
         }
     }
+    self.output = rollOutput;
+    return NO;
 }
 
 -(NSString *)heart

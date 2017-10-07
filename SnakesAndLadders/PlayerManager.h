@@ -11,12 +11,14 @@
 
 @interface PlayerManager : NSObject
 
-@property (nonatomic, readwrite) NSMutableArray<Player *> *players;
+@property (nonatomic, readwrite, strong) NSMutableArray<Player *> *players;
 @property (nonatomic, readonly) bool gameOver;
-@property (nonatomic, readonly) NSString *output;
+@property (nonatomic, readonly, strong) NSString *output;
+@property (nonatomic, readwrite) NSInteger currentIndex;
 
 -(void)createPlayers:(NSInteger)numberOfPlayers;
+-(Player *)currentPlayer;
 -(void)roll;
-
+-(void)endTurn;
 
 @end

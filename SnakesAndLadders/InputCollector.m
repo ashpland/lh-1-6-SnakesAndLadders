@@ -13,12 +13,9 @@
 
 +(NSString *)inputForPrompt:(NSString *)promptString
 {
-    if ([promptString isEqualToString:@""]) {
-        printf("> ");
-    } else {
-        const char *cfilename=[promptString UTF8String];
-        printf("%s: ",cfilename);
-    }
+    
+    const char *cfilename=[promptString UTF8String];
+    printf("%s",cfilename);
     char inputChars[255];
     fgets(inputChars, 255, stdin);
     NSString *inputString = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
