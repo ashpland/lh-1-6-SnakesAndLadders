@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "InputCollector.h"
 #import "Player.h"
+#import "PlayerManager.h"
+
 #define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
 
@@ -17,12 +19,25 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        Player *currentPlayer = [Player new];
-        
+        PlayerManager *playerManager = [PlayerManager new];
+                
         NSLog(@"🐍 Welcome to Snakes and Ladders! ☰");
+        
+        do {
+            NSLog(@"Please enter the number of players (1-4): ");
+            NSInteger numberOfPlayers =[[InputCollector inputForPrompt:@""] integerValue];
+            // the 5 is intention, for a secret extra player
+            if (1 <= numberOfPlayers && numberOfPlayers <= 5) {
+                [playerManager createPlayers:numberOfPlayers];
+            }
+        } while (playerManager.players.count == 0);
+        
+        NSLog(@"Here are the players:");
+        NSLog(@"%@", playerManager);
+        
         NSLog(@"Type r to roll");
         
-        while (!currentPlayer.gameOver) {
+        while (!playerManager.gameOver) {
             NSString *response = [InputCollector inputForPrompt:@""];
             
             if(!([response isEqualToString:@"r"] || [response isEqualToString:@"roll"])){
@@ -32,8 +47,8 @@ int main(int argc, const char * argv[]) {
                     NSLog(@"Try again");
                 }
             } else {
-                [currentPlayer roll];
-                NSLog(@"%@", [currentPlayer output]);
+                [playerManager roll];
+                NSLog(@"%@", [playerManager output]);
             }
         }
     }

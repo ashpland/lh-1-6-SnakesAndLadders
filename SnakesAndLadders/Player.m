@@ -21,11 +21,20 @@
 {
     self = [super init];
     if (self) {
-        _gameOver = NO;
         _currentSquare = 0;
         _gameLogic = @{
            @4:@14,@9:@31,@17:@7,@20:@38,@28:@84,@40:@58,@51:@67,@63:@81,@64:@60,@89:@26,@95:@75,@99:@78
            };
+    }
+    return self;
+}
+
+-(instancetype)initWithName:(NSString *)playerName
+{
+    self = [super init];
+    if (self) {
+        _currentSquare = 0;
+        _name = playerName;
     }
     return self;
 }
@@ -55,6 +64,35 @@
             self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n", roll, (long)self.currentSquare];
         }
     }
+}
+
+-(NSString *)heart
+{
+    NSInteger playerNumber = [[[self.name componentsSeparatedByString:@" "] objectAtIndex:1] integerValue];
+    
+    
+    switch (playerNumber) {
+        case 1:
+            return @"❤️";
+            break;
+        case 2:
+            return @"💙";
+            break;
+        case 3:
+            return @"💛";
+            break;
+        case 4:
+            return @"💚";
+            break;
+        default:
+            return @"💜";
+            break;
+    }
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ %@", self.heart, self.name];
 }
 
 @end

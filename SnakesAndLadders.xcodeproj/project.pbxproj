@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4941B6251F8973A000A943D1 /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4941B6241F8973A000A943D1 /* PlayerManager.m */; };
 		49C711041F889E1E00FFEF48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C711031F889E1E00FFEF48 /* main.m */; };
 		49C711121F889ED600FFEF48 /* InputCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C711101F889ED600FFEF48 /* InputCollector.m */; };
 		49C711151F88A27900FFEF48 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C711141F88A27900FFEF48 /* Player.m */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4941B6231F8973A000A943D1 /* PlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerManager.h; sourceTree = "<group>"; };
+		4941B6241F8973A000A943D1 /* PlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerManager.m; sourceTree = "<group>"; };
 		49C711001F889E1E00FFEF48 /* SnakesAndLadders */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SnakesAndLadders; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C711031F889E1E00FFEF48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49C711101F889ED600FFEF48 /* InputCollector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputCollector.m; sourceTree = "<group>"; };
@@ -66,6 +69,8 @@
 				49C711031F889E1E00FFEF48 /* main.m */,
 				49C711131F88A27900FFEF48 /* Player.h */,
 				49C711141F88A27900FFEF48 /* Player.m */,
+				4941B6231F8973A000A943D1 /* PlayerManager.h */,
+				4941B6241F8973A000A943D1 /* PlayerManager.m */,
 				49C711111F889ED600FFEF48 /* InputCollector.h */,
 				49C711101F889ED600FFEF48 /* InputCollector.m */,
 			);
@@ -131,6 +136,7 @@
 			files = (
 				49C711121F889ED600FFEF48 /* InputCollector.m in Sources */,
 				49C711151F88A27900FFEF48 /* Player.m in Sources */,
+				4941B6251F8973A000A943D1 /* PlayerManager.m in Sources */,
 				49C711041F889E1E00FFEF48 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
