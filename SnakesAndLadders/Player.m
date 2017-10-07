@@ -33,20 +33,20 @@
 -(void)roll
 {
     int roll = arc4random_uniform(6)+1;
-    //int roll = 4;
     self.currentSquare = self.currentSquare + roll;
     
     if ([self.gameLogic objectForKey:[NSNumber numberWithInteger:self.currentSquare]]) {
         NSInteger newSquare = [[self.gameLogic objectForKey:[NSNumber numberWithInteger:self.currentSquare]] integerValue];
+ 
         if (newSquare > self.currentSquare) {
             self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n☰ Ladder! ☰\n Up to %ld!\n", roll, (long)self.currentSquare, (long)newSquare];
-        } else {
-            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n🐍 Snake! 🐍\n Down to %ld!\n", roll, (long)self.currentSquare, (long)newSquare];
-
         }
-        
+        else {
+            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n🐍 Snake! 🐍\n Down to %ld!\n", roll, (long)self.currentSquare, (long)newSquare];
+        }
         self.currentSquare = newSquare;
-    } else {
+    }
+    else {
         if(self.currentSquare >= 100){
             self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to 100!\n🏆 You Win! 🏆\n\n", roll];
             self.gameOver = YES;
@@ -54,10 +54,7 @@
         } else {
             self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n", roll, (long)self.currentSquare];
         }
-
     }
-    
 }
-
 
 @end

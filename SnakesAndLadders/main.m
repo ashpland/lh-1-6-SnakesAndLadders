@@ -16,16 +16,12 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        bool doContinue = YES;
-        
-        Player *player1 = [Player new];
-        
-        Player *currentPlayer = player1;
+        Player *currentPlayer = [Player new];
         
         NSLog(@"🐍 Welcome to Snakes and Ladders! ☰");
         NSLog(@"Type r to roll");
         
-        while (!player1.gameOver) {
+        while (!currentPlayer.gameOver) {
             NSString *response = [InputCollector inputForPrompt:@""];
             
             if(!([response isEqualToString:@"r"] || [response isEqualToString:@"roll"])){
@@ -38,11 +34,7 @@ int main(int argc, const char * argv[]) {
                 [currentPlayer roll];
                 NSLog(@"%@", [currentPlayer output]);
             }
-            
-            
         }
-        
-        
     }
     return 0;
 }
