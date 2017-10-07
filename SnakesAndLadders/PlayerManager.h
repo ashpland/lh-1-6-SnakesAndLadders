@@ -15,6 +15,7 @@
 @property (nonatomic, readonly) bool gameOver;
 @property (nonatomic, readonly, strong) NSString *output;
 @property (nonatomic, readwrite) NSInteger currentIndex;
+@property (nonatomic, readonly, strong) NSString *score;
 
 -(void)createPlayers:(NSInteger)numberOfPlayers;
 -(Player *)currentPlayer;

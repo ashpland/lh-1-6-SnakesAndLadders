@@ -58,7 +58,8 @@ int main(int argc, const char * argv[]) {
                 }
             } else {
                 [playerManager roll];
-                NSLog(@"%@", [playerManager output]);
+                NSLog(@"%@", playerManager.output);
+                NSLog(@"%@", playerManager.score);
                 [playerManager endTurn];
             }
         }

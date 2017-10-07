@@ -61,6 +61,16 @@
     return self.currentPlayer.output;
 }
 
+-(NSString *)score
+{
+    NSMutableString *scoreOutput = [NSMutableString stringWithString:@"Score: "];
+    for(Player *player in self.players){
+        [scoreOutput appendString:[NSString stringWithFormat:@"%@ ",player.score]];
+    }
+    [scoreOutput appendString:@"\n"];
+    return scoreOutput;
+}
+
 -(void)endTurn
 {
     self.currentIndex = self.currentIndex + 1;

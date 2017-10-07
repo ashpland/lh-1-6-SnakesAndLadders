@@ -38,8 +38,8 @@
 
 -(bool)roll
 {
-    //int roll = arc4random_uniform(6)+1;
-    int roll = 100;
+    int roll = arc4random_uniform(6)+1;
+    //int roll = 100;
     self.currentSquare = self.currentSquare + roll;
     
     NSMutableString *rollOutput = [NSMutableString stringWithFormat:@"\n%@ rolled %d\n      Move to %ld\n", self, roll, (long)self.currentSquare];
@@ -93,6 +93,11 @@
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@ %@", self.heart, self.name];
+}
+
+-(NSString *)score
+{
+    return [NSString stringWithFormat:@"%@: %lu", self.heart, (long)self.currentSquare];
 }
 
 @end

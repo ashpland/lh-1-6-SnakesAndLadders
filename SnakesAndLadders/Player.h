@@ -15,6 +15,7 @@
 @property (nonatomic, readonly) NSString *output;
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSString *heart;
+@property (nonatomic, readonly) NSString *score;
 
 -(instancetype)initWithName:(NSString *)playerName;
 -(bool)roll;
