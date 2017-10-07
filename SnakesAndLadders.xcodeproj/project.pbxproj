@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		49C711041F889E1E00FFEF48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C711031F889E1E00FFEF48 /* main.m */; };
 		49C711121F889ED600FFEF48 /* InputCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C711101F889ED600FFEF48 /* InputCollector.m */; };
+		49C711151F88A27900FFEF48 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C711141F88A27900FFEF48 /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		49C711031F889E1E00FFEF48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49C711101F889ED600FFEF48 /* InputCollector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputCollector.m; sourceTree = "<group>"; };
 		49C711111F889ED600FFEF48 /* InputCollector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputCollector.h; sourceTree = "<group>"; };
+		49C711131F88A27900FFEF48 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		49C711141F88A27900FFEF48 /* Player.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				49C711031F889E1E00FFEF48 /* main.m */,
+				49C711131F88A27900FFEF48 /* Player.h */,
+				49C711141F88A27900FFEF48 /* Player.m */,
 				49C711111F889ED600FFEF48 /* InputCollector.h */,
 				49C711101F889ED600FFEF48 /* InputCollector.m */,
 			);
@@ -125,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49C711121F889ED600FFEF48 /* InputCollector.m in Sources */,
+				49C711151F88A27900FFEF48 /* Player.m in Sources */,
 				49C711041F889E1E00FFEF48 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

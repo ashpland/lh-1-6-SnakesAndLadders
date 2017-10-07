@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "InputCollector.h"
+#import "Player.h"
 #define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
 
@@ -17,7 +18,9 @@ int main(int argc, const char * argv[]) {
         
         bool doContinue = YES;
         
+        Player *player1 = [Player new];
         
+        Player *currentPlayer = player1;
         
         NSLog(@"🐍 Welcome to Snakes and Ladders! ☰");
         NSLog(@"Type r to roll");
@@ -32,9 +35,7 @@ int main(int argc, const char * argv[]) {
                     NSLog(@"Try again");
                 }
             } else {
-                
-                int roll = arc4random_uniform(6)+1;
-                NSLog(@"%d", roll);
+                [currentPlayer roll];
             }
             
             
