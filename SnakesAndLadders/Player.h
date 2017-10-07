@@ -13,6 +13,7 @@
 @property (nonatomic, readwrite) NSInteger currentSquare;
 @property (nonatomic, readonly) NSDictionary<NSNumber *, NSNumber *> *gameLogic;
 @property (nonatomic, readonly) NSString *output;
+@property (nonatomic, readonly) bool gameOver;
 
 -(void)roll;
 

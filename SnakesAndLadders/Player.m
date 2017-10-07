@@ -11,6 +11,7 @@
 @interface Player ()
 
 @property (nonatomic, readwrite) NSString *output;
+@property (nonatomic, readwrite) bool gameOver;
 
 @end
 
@@ -20,6 +21,7 @@
 {
     self = [super init];
     if (self) {
+        _gameOver = NO;
         _currentSquare = 0;
         _gameLogic = @{
            @4:@14,@9:@31,@17:@7,@20:@38,@28:@84,@40:@58,@51:@67,@63:@81,@64:@60,@89:@26,@95:@75,@99:@78
@@ -45,7 +47,13 @@
         
         self.currentSquare = newSquare;
     } else {
-        self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n", roll, (long)self.currentSquare];
+        if(self.currentSquare >= 100){
+            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to 100!\n🏆 You Win! 🏆\n\n", roll];
+            self.gameOver = YES;
+            return;
+        } else {
+            self.output = [NSString stringWithFormat:@"\nYou rolled %d\n Move to %ld\n", roll, (long)self.currentSquare];
+        }
 
     }
     

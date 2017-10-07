@@ -25,12 +25,12 @@ int main(int argc, const char * argv[]) {
         NSLog(@"🐍 Welcome to Snakes and Ladders! ☰");
         NSLog(@"Type r to roll");
         
-        while (doContinue) {
+        while (!player1.gameOver) {
             NSString *response = [InputCollector inputForPrompt:@""];
             
             if(!([response isEqualToString:@"r"] || [response isEqualToString:@"roll"])){
                 if([response isEqualToString:@"q"] || [response isEqualToString:@"quit"]){
-                    doContinue = NO;
+                    break;
                 } else {
                     NSLog(@"Try again");
                 }
